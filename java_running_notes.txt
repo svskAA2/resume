@@ -1,0 +1,1870 @@
+document.querySelectorAll('.FileBlock-module__isClipped__FkNEm').forEach(b => b.classList.remove('FileBlock-module__isClipped__FkNEm'));
+document.querySelectorAll('.FileBlock-module__container__vNLCB').forEach(block => block.click());
+
+│ Q1: "What is race condition?"                        │
+│ A:  When multiple threads access shared mutable      │
+│     state concurrently, leading to unpredictable     │
+│     results.                                         │
+│ 🏢 100% interviews ⭐⭐⭐                             │
+│                                                       │
+│ Q2: "What is synchronization?"                       │
+│ A:  Mechanism to ensure only ONE thread can access   │
+│     critical section at a time. Prevents race        │
+│     conditions.                                      │
+│ 🏢 100% interviews ⭐⭐⭐                             │
+│                                                       │
+│ Q3: "How does synchronized work internally?"         │
+│ A:  Uses lock (monitor) on object (or class for      │
+│     static). Thread acquires lock to enter,          │
+│     releases on exit. Other threads block.           │
+
+
+│     synchronized = ONE WAY to achieve thread-safety  │
+│     Other ways: immutability, atomic, concurrent col │
+
+
+│   @Service stateless beans                           │
+│   No shared state = no sync needed                   │
+How it Works?
+Isolated Method Variables: All data required to process a request is stored in local variables on the thread’s execution stack (local to the method), 
+not in the bean’s instance variables.
+
+No Shared Mutability: Since the bean lacks internal fields that are written to or modified during execution, 
+there is nothing for concurrent threads to "collide" over.
+
+Independent Execution: Every incoming HTTP request (or client call) gets its own isolated thread. 
+Because the bean acts merely as a set of instructions rather than a container for user data, threads do not interfere with one another.
+
+RACE CONDITION:
+   Multiple threads accessing shared mutable state
+   = unpredictable, buggy results
+
+│ 💼 LESSON 6: Modern: Use BlockingQueue!              │
+│   ArrayBlockingQueue, LinkedBlockingQueue            │
+│   Internal wait/notify done for you                  │
+│   Cleaner code                                       │
+│                                                       │
+│ 💼 LESSON 7: For Spring Boot                         │
+│   • Use @Async + CompletableFuture                   │
+│   • Use Spring's TaskExecutor                        │
+│   • Use ApplicationEvent for app-level signals       │
+
+│ 🆕 PREFERRED MODERN APPROACHES:                      │
+│   • BlockingQueue (built-in producer-consumer)       │
+│   • CompletableFuture (async pipelines)              │
+│   • CountDownLatch (one-shot coordination)           │
+│   • CyclicBarrier (multi-phase)                      │
+│   • Semaphore (resource counting)                    │
+│   • Phaser (advanced)                                │
+│   • Reactive (Project Reactor)                       │
+
+senior dev wisdom
+industry reality
+interview q's
+summary
+
+
+
+public
+private
+protected
+default
+FS
+ASS
+NTV
+-> 12 modifiers
+
+Idi "ENCAPSULATION" — OOP yokka 1st Pillar
+Modifiers ee concept ni implement cheyyataniki
+vadtaaru
+
+Angular Signal = volatile (visibility) +
+                Observable (notification) +
+                Auto-subscription (DI)
+				
+4 -> 5
+11-> 7
+14 -> 8
+
+┌─────────────────────────┐
+        │  Search Order:          │
+        │  ──────────────         │
+        │  1. Bootstrap classes    │
+        │     (java.lang, java.io)│
+        │  2. Extension classes   │
+        │     (jre/lib/ext)       │
+        │  3. CLASSPATH ◄─── HERE!│
+        │     (your code)         │
+        └───────┬─────────────────┘
+		
+📹 4. 9 Key Interfaces - Collection
+📹 5. Difference between Collection and Collections (very famous!)
+📹 6. 9 Key Interfaces - List
+📹 7. 9 Key Interfaces - Set
+📹 8. Difference between List and Set
+📹 9. 9 Key Interfaces - SortedSet, NavigableSet
+📹 10. 9 Key Interfaces - Queue
+📹 11. 9 Key Interfaces - Map
+📹 12. 9 Key Interfaces - SortedMap, NavigableMap
+
+📹 14. Collection Framework - Collection interface details
+📹 15. Collection Framework - List interface details
+📹 16. ArrayList details ⭐ (most important!)
+📹 17. Differences between ArrayList and Vector
+📹 18. How to get Synchronized version of ArrayList
+📹 19. LinkedList details
+📹 20. Differences between ArrayList and LinkedList ⭐
+
+📹 23. Three Cursors of Java - Enumeration
+📹 24. Three Cursors of Java - Iterator
+📹 25. Three Cursors of Java - ListIterator
+📹 26. Comparison of the three Cursors of Java ⭐
+📹 27. Implementation Classes of the three Cursors of Java
+
+41. Differences between Comparable and Comparator ⭐⭐
+
+📹 43. Map Interface details
+📹 44. HashMap details — Part 1
+📹 45. HashMap details — Part 2
+📹 46. HashMap internal working ⭐⭐⭐ (MOST asked in interviews!)
+📹 47. Differences between HashMap and Hashtable
+📹 48. How to get Synchronized version of HashMap
+
+
+┌──────────────────────────────────────────────────────┐
+│       MUST-WATCH VIDEOS FOR INTERVIEWS!              │
+├──────────────────────────────────────────────────────┤
+│                                                       │
+│  🥇 #1: HashMap internal working ⭐⭐⭐               │
+│         (90% interviews ee question vasthadi!)       │
+│                                                       │
+│  🥈 #2: ArrayList vs LinkedList                      │
+│                                                       │
+│  🥉 #3: Comparable vs Comparator ⭐⭐                │
+│                                                       │
+│  4️⃣ ArrayList details                                │
+│  5️⃣ HashMap vs Hashtable                             │
+│  6️⃣ HashSet internal working                         │
+│  7️⃣ TreeSet details (10 parts!)                      │
+│  8️⃣ Iterator vs ListIterator vs Enumeration          │
+│  9️⃣ Collection vs Collections                        │
+│  🔟 fail-fast vs fail-safe iterators                 │
+└──────────────────────────────────────────────────────┘
+
+
+
+Multithreading:
+┌──────────────────────────────────────────────────────┐
+│        INTERVIEW PRIORITY ORDER                      │
+├──────────────────────────────────────────────────────┤
+│                                                       │
+│  🥇 MUST WATCH (90%+ interviews ask):                │
+│     • Part 1: Introduction                           │
+│     • Part 2-3: Thread creation ways                 │
+│     • Part 7-9: Synchronization (HEAVY!)             │
+│     • Part 10-11: wait/notify                        │
+│     • Part 12: Deadlock                              │
+│     • Enh-2: concurrent package ⭐⭐⭐               │
+│     • Enh-4: Thread Pools ⭐⭐⭐                     │
+
+┌─ 📝 NOTE POINT ──────────────────────────────────────┐
+│                                                       │
+│ ⭐ Output ORDER NOT GUARANTEED in multithreading!    │
+│ ⭐ Thread scheduler decides who runs when            │
+│ ⭐ Each run can give DIFFERENT output                │
+│ ⭐ This is called "non-determinism"                  │
+└──────────────────────────────────────────────────────┘
+
+│           Concurrency: Dealing with multiple things  │
+│           Parallelism: Doing multiple things same time
+
+│ 💼 LESSON 2: Spring Boot abstracts most threading    │
+│   You rarely write threads directly                  │
+│   Tomcat manages request threads                     │
+│   @Async for background tasks                        │
+CompletableFuture for async 
+
+│ PAST (Java 1.0 - Java 4):                            │
+│ • Thread class, Runnable interface                   │
+│ • synchronized keyword                               │
+│ • wait/notify mechanism                              │
+│ • Manual thread management                           │
+│                                                       │
+│ PRESENT (Java 5 - Java 17):                          │
+│ • java.util.concurrent (Doug Lea's gift!)            │
+│ • ExecutorService, Thread pools                      │
+│ • Locks (ReentrantLock, ReadWriteLock)               │
+│ • Atomic classes                                     │
+│ • CompletableFuture (Java 8)                         │
+│ • Parallel streams (Java 8)                          │
+
+│              'Define a thread' ante —                │
+│              'Thread enti pani cheyyali ani          │
+│               specify cheyyatame!'                   │
+but not thread ela create cheyali!!!! you understand!!?
+
+extend T class
+override run
+create obj
+start
+
+┌─ 📝 GOLDEN RULE ─────────────────────────────────────┐
+│                                                       │
+│ ⭐ start() = Creates NEW thread → calls run()        │
+│ ⭐ run()   = Just method call (NO new thread!)       │
+│                                                       │
+│ Always use start() for multithreading!               │
+│                                                       │
+│ run() is INTERNALLY called by JVM on new thread.     │
+│ You should NEVER call run() directly!                │
+└──────────────────────────────────────────────────────┘
+
+Thread.sleep(1000);         // Pause 1 sec
+Thread.yield();             // Hint scheduler
+sync. context lo use chestham e rendu , anduke direct Thread. ani use ante elago oka t eh untadi ga??
+
+│   Old style: class MyThread extends Thread           │
+│   Modern:    Use ExecutorService + Runnable          │
+
+│ 💼 LESSON 4: Most production code uses:              │
+│   • Lambdas (Java 8+)                                │
+│   • ExecutorService                                  │
+│   • CompletableFuture                                │
+│   • @Async (Spring)                                  │
+
+┌──────────────────────────────────────────────────────┐
+│  RUNNABLE = Functional Interface                     │
+│                                                      │
+│  package: java.lang                                  │
+│                                                      │
+│  Source code (just 1 method!):                       │
+│                                                      │
+│  @FunctionalInterface                                │
+│  public interface Runnable {                         │
+│      public abstract void run();                     │
+│  }                                                   │
+┌──────────────────────────────────────────────────────┐
+│  Runnable interface lo:                              │
+│                                                      │
+│  ✅ Only ONE method: run()                           │
+│  ✅ Abstract method (no body)                        │
+│  ✅ Functional interface (Java 8+)                   │
+│  ✅ Can use lambda!                                  │
+│                                                      │
+│  Thread class implements Runnable:                   │
+│                                                      │
+│  public class Thread implements Runnable {           │
+│      public void run() { /* default */ }             │
+│      public void start() { /* magic */ }             │
+│      // many more methods                            │
+│  }                                                   │
+│                                                      │
+│  So Thread class itself uses Runnable internally!    │
+
+implement
+run override
+runnable obj
+pass r to thread obj - wrap 
+t.start
+
+
+│ 💼 LESSON 4: For result-returning tasks → Callable   │
+│   Runnable: void run()                               │
+│   Callable: T call() throws Exception                │
+
+│ 🏢 SPRING BOOT:                                      │
+│   • @Async methods → Spring wraps in Runnable        │
+│   • @Scheduled → Runnable internally                 │
+│   • TaskExecutor → uses Runnable                     │
+
+new Thread(() -> { /* task */ }).start();
+
+│ Mee project lo Runnable EVERYWHERE!                  │
+│                                                       │
+│ 1. Spring @Async:                                    │
+│   ────────────────                                   │
+│   @Async                                             │
+│   public CompletableFuture<String> sendMessage() {   │
+│       // Spring wraps this in Runnable internally!   │
+│   }                                                  │
+│                                                       │
+│ 2. ScheduledExecutorService:                         │
+│   ──────────────────────                             │
+│   scheduler.scheduleAtFixedRate(() -> {              │
+│       // Runnable!                                   │
+│       checkPilotStatus();                            │
+│   }, 0, 5, TimeUnit.SECONDS);                        │
+│                                                       │
+│ 3. Kafka MessageListener:                            │
+│   ────────────────────                               │
+│   @KafkaListener(topics = "pilot-messages")          │
+│   public void handle(String msg) {                   │
+│       // Spring runs in thread pool — Runnable!      │
+│   }                                                  │
+│                                                       │
+│ 4. CompletableFuture:                                │
+│   ────────────────                                   │
+│   CompletableFuture.runAsync(() -> {                 │
+│       // Runnable!                                   │
+│       processMessage();                              │
+│   });                                                │
+│                                                       │
+│ ALL OF THESE = Runnable under the hood!              │
+
+
+│ 💼 LESSON 2: For ordering, use proper synchronization│
+│   • CountDownLatch                                   │
+│   • CyclicBarrier                                    │
+│   • Semaphores                                       │
+│   • wait/notify                                      │
+
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "Children, oka problem chooddam.         │
+│                                                      │
+│              Multiple threads parallel ga running    │
+│              unnayi.                                 │
+│                                                      │
+│              Sometimes:                              │
+│              ─────────                               │
+│              • 'Naa thread konchem TIME isthe        │
+│                bagundu — vere threads run avvali'    │
+│                → yield() use cheyyali!               │
+│                                                      │
+│              • 'Vere thread COMPLETE ayyaka          │
+│                naa thread continue avvali'           │
+│                → join() use cheyyali!                │
+│                                                      │
+│              IDI ee 2 methods ki PURPOSE!"           │
+└──────────────────────────────────────────────────────┘
+
+Main thread calls t.join() on worker thread
+
+join() method instance -> 2nd thread include ayindi kabatti
+sleep(1000) = AT LEAST 1 second 
+
+┌─ 💎 SENIOR DEV PATTERN ──────────────────────────────┐
+│                                                       │
+│ When InterruptedException caught:                    │
+│                                                       │
+│ Step 1: Re-set interrupt flag:                       │
+│   Thread.currentThread().interrupt();                │
+│                                                       │
+│ Step 2: Decide:                                      │
+│   • Continue (after handling)                        │
+│   • Exit method                                      │
+│   • Re-throw exception                               │
+│                                                       │
+│ NEVER ignore InterruptedException silently!          │
+│ It's a SIGNAL from another thread to stop!           │
+└──────────────────────────────────────────────────────┘
+
+│              interrupt() method use chesthe          │
+│              sleeping/waiting thread ki              │
+│              SIGNAL veltadi —                        │
+│              'Hey, lechi po!' ANI!                   │
+│                                                      │
+│              Adi InterruptedException ga             │
+│              throw avtundi!"                         │
+└──────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────┐
+│   THREAD INTERRUPTION MECHANISM                      │
+│                                                      │
+│   Thread A is sleeping for 10 seconds:               │
+│                                                      │
+│   T1: Thread A in TIMED_WAITING state                │
+│       Internally has "interrupted" flag = false      │
+│                                                      │
+│   T2: Thread B calls threadA.interrupt();            │
+│       │                                              │
+│       ▼                                              │
+│       Sets flag: A.interrupted = true                │
+│       │                                              │
+│       ▼                                              │
+│       JVM checks: "Is A in waiting state?"           │
+│       │                                              │
+│       ├─── YES → Wake up A!                          │
+│       │         Throw InterruptedException           │
+│       │         Reset flag to false                  │
+│       │                                              │
+│       └─── NO → Just set flag (true)                 │
+│                Thread continues normally             │
+│                Can check flag manually               │
+└──────────────────────────────────────────────────────┘
+│ 💼 LESSON 4: Cancel via interruption                 │
+│   When user hits "Cancel" button:                    │
+│   workerThread.interrupt();                          │
+│   Worker checks flag and exits gracefully            │
+│                                                       │
+│ 💼 LESSON 5: Modern alternatives                     │
+│   • Future.cancel(true)                              │
+│   • CompletableFuture                                │
+│   • ExecutorService.shutdownNow()                    │
+│                                                       │
+│ 💼 LESSON 6: Don't swallow interrupts!               │
+│   Major bug source — silent swallowing!              │
+│   Always at least restore flag                       │
+│                                                       │
+│ 💼 LESSON 7: Spring Boot pattern                     │
+│   @Scheduled(fixedDelay = 1000)                      │
+│   Better than Thread.sleep() in loops               │
+
+│  Durga sir: "RACE CONDITION ante enti?               │
+│                                                      │
+│              'Multiple threads SIMULTANEOUSLY same   │
+│               resource ni access chesthe — and       │
+│               MODIFY chesthe — output VARY avthadi!' │
+│                                                      │
+│              'Race' ante competition!                │
+│              Multiple threads competing for          │
+│              same resource!                          │
+│                                                      │
+│              Result: BUGS, data corruption!"         │
+
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "synchronized internally LOCK use        │
+│              chesthadi.                              │
+│                                                      │
+│              Every Java OBJECT has an inbuilt LOCK!  │
+│              (also called MONITOR or MUTEX)          │
+│                                                      │
+│              When thread enters synchronized method: │
+│              ────────────────────────                 │
+│              1. Tries to ACQUIRE the lock            │
+│              2. If available → ACQUIRES it           │
+│              3. Other threads WAIT (block!)          │
+│              4. After execution → RELEASES lock      │
+│              5. Waiting thread gets lock             │
+│                                                      │
+│              IDI = LOCK MECHANISM!"                  │
+└──────────────────────────────────────────────────────┘
+
+┌─ 📝 GOLDEN RULE ─────────────────────────────────────┐
+│                                                       │
+│ ⭐ synchronized = OBJECT-LEVEL lock                   │
+│ ⭐ SAME object → threads serialize (queue up)         │
+│ ⭐ DIFFERENT objects → threads run parallel           │
+│ ⭐ Lock is PER instance!                              │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "STATIC synchronized = different!        │
+│                                                      │
+│              Lock is on CLASS, not on object!        │
+│                                                      │
+│              All instances share SAME class lock.    │
+│                                                      │
+│              Different objects but same class →      │
+│              still serialize!"                       │
+└──────────────────────────────────────────────────────┘
+
+┌────────────────────┬─────────────────────────────────┐
+│  OBJECT-LEVEL      │     CLASS-LEVEL                 │
+│  synchronized      │     static synchronized         │
+├────────────────────┼─────────────────────────────────┤
+│                    │                                 │
+│ public             │ public static                   │
+│ synchronized       │ synchronized                    │
+│ void method()      │ void method()                   │
+│                    │                                 │
+│ Lock on:           │ Lock on:                        │
+│ THIS instance      │ Class object (.class)           │
+│                    │                                 │
+│ Different objects  │ ALL instances share lock        │
+│ = different locks  │                                 │
+│                    │                                 │
+│ Used for:          │ Used for:                       │
+│ Instance variables │ Static variables                │
+└────────────────────┴─────────────────────────────────┘
+
+│ 💼 LESSON 8: Spring Boot reality                     │
+│   • @Service classes are usually stateless           │
+│   • Singletons but with no shared mutable state      │
+│   • Avoid synchronized at controller level           │
+│                                                       │
+│ 💼 LESSON 9: Database transactions                   │
+│   For DB-related concurrency:                        │
+│   Use @Transactional, optimistic/pessimistic locking │
+│   NOT synchronized!                                  │
+
+│ 📈 MODERN WAY:                                       │
+│   • Immutable objects (Java records, Lombok)         │
+│   • ConcurrentHashMap, CopyOnWriteArrayList          │
+│   • Atomic classes (AtomicInteger, etc.)             │
+│   • java.util.concurrent.locks                       │
+│   • Reactive programming (Project Reactor)           │
+
+│              Every CLASS has ONE class-level lock.   │
+│                                                      │
+│              Idi ela exist avtundi?                  │
+│              ──────────────                          │
+│              JVM lo prathi class ki Class object     │
+│              untundi. Adi ee Class ki representative.│
+│                                                      │
+│              Static synchronized ki — ee Class       │
+│              object's lock use avtundi!              │
+│                                                      │
+│              Akkada all instances share SAME lock!"  │
+
+│              'Same thread — same lock                │
+│               — multiple times acquire cheyyochu!'   │
+│                                                      │
+│              Endhuku important?                      │
+│              ───────────                             │
+│              One synchronized method calls           │
+│              ANOTHER synchronized method ON SAME     │
+│              OBJECT.                                 │
+│                                                      │
+│              Without reentrant nature — DEADLOCK!    │
+│              With reentrant nature — Works fine!"    │
+
+┌──────────────────────────────────────────────────────┐
+│   REENTRANT LOCK INTERNALS                           │
+│                                                      │
+│   Lock has:                                          │
+│   • Owner thread                                     │
+│   • Counter (lock count)                             │
+│                                                      │
+│   When thread enters:                                │
+│   ────────                                            │
+│   • If owner = current thread → counter++             │
+│   • Otherwise → BLOCK (or acquire if free)           │
+│                                                      │
+│   When thread exits:                                 │
+│   ────────                                            │
+│   • counter--                                        │
+│   • If counter = 0 → release lock                    │
+│   • If counter > 0 → still held                      │
+│                                                      │
+│   So:                                                │
+│   method1() entered → counter = 1                    │
+│   method2() entered → counter = 2                    │
+│   method2() exited  → counter = 1                    │
+│   method1() exited  → counter = 0 → release          │
+└──────────────────────────────────────────────────────┘
+
+│ 📈 INCREASING USAGE:                                 │
+│   • ConcurrentHashMap (everywhere!)                  │
+│   • Atomic classes                                   │
+│   • Immutable objects (Java records!)                │
+
+│ 💼 LESSON 8: Spring Boot rarely needs synchronized   │
+│   • Stateless beans                                  │
+│   • Atomic classes                                   │
+│   • Concurrent collections                           │
+│   • Database transactions handle most cases          │
+
+┌──────────────────────────────────────────────────────┐
+│      INTER-THREAD COMMUNICATION METHODS              │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  1. wait()                                           │
+│     "I'm WAITING for someone to wake me up"          │
+│     → Releases lock                                  │
+│     → Goes to WAITING state                          │
+│                                                      │
+│  2. notify()                                         │
+│     "Hey! Wake up ONE waiting thread!"               │
+│     → Picks one waiting thread                       │
+│     → Doesn't release lock immediately               │
+│                                                      │
+│  3. notifyAll()                                      │
+│     "Wake up ALL waiting threads!"                   │
+│     → All waiting threads notified                   │
+│     → They compete for lock                          │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "Children, BIG SURPRISE!                 │
+│                                                      │
+│              Ee 3 methods Thread class lo            │
+│              UNDABU!                                 │
+│                                                      │
+│              Mari ekkada unnayi?                     │
+│              ─────────                                │
+│                                                      │
+│              ⭐ Object class lo unnayi! ⭐            │
+│                                                      │
+│              Endhuku?                                │
+│              ────────                                 │
+│              Lock is on OBJECT.                      │
+│              wait/notify operate on LOCK.            │
+│              So they belong to OBJECT class!         │
+│                                                      │
+│              Every Java object has these 3 methods!" │
+└──────────────────────────────────────────────────────┘
+
+
+┌──────────────────────────────────────────────────────┐
+│   wait() KEY POINTS:                                 │
+│                                                      │
+│   ⭐ Object class method (NOT Thread class!)         │
+│   ⭐ FINAL method                                    │
+│   ⭐ Throws InterruptedException                     │
+│   ⭐ ⭐ ⭐ RELEASES THE LOCK! ⭐ ⭐ ⭐                  │
+│   ⭐ MUST be called from synchronized context!       │
+│   ⭐ State: RUNNING → WAITING                        │
+│   ⭐ Resumed by notify/notifyAll                     │
+└──────────────────────────────────────────────────────┘
+instance
+
+│ Q12: "Lock vs notify object — same?"                 │
+│ A:  YES! Must be SAME object                         │
+│     synchronized (obj) {                             │
+│         obj.wait();    // ✅                          │
+│         otherObj.wait(); // ❌ exception!             │
+│     }                                                │
+
+┌─ 🚨 CRITICAL POINT ──────────────────────────────────┐
+│                                                       │
+│ When wait() throws InterruptedException:             │
+│                                                       │
+│ Step 1: Thread waiting on lock                       │
+│ Step 2: interrupt() called                           │
+│ Step 3: Thread wakes up from waiting                 │
+│ Step 4: ⭐ Thread MUST RE-ACQUIRE LOCK first!        │
+│ Step 5: Then InterruptedException thrown             │
+│                                                       │
+│ IDI INTERVIEW TRAP question!                         │
+│ Lock is re-acquired BEFORE exception thrown!         │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│  DEADLOCK:                                           │
+│  ─────                                                │
+│  "Two or more threads are waiting for each other's   │
+│   resources INDEFINITELY, none can proceed."         │
+
+┌─ 💎 KEY INSIGHT ─────────────────────────────────────┐
+│                                                       │
+│ Deadlock — threads stuck (BLOCKED)                   │
+│ Livelock — threads active but no progress (RUNNING)  │
+│ Starvation — one thread denied (other progress)      │
+│                                                       │
+│ All three are concurrency bugs!                      │
+│ Solution: Better synchronization design              │
+
+
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "Children, basic multithreading          │
+│              (Java 1.0) lo PROBLEMS unayi!           │
+│                                                      │
+│              1. synchronized — coarse grained        │
+│              2. wait/notify — error prone            │
+│              3. Manual thread creation — expensive   │
+│              4. No thread pools                      │
+│              5. No timeouts on locks                 │
+│              6. No fair locking                      │
+│              7. Hard to write safe concurrent code   │
+│                                                      │
+│              Solution? Java 5 (2004):                │
+│              ──────                                   │
+│              java.util.concurrent package!           │
+│                                                      │
+│              Brilliantly designed by:                │
+│              ⭐ Doug Lea (legend!)                    │
+
+"Thread group lo BIG advantage —         │
+│                                                      │
+│              ONE OPERATION applies to ALL threads!   │
+
+┌──────────────────────────────────────────────────────┐
+│      java.util.concurrent CONTENTS                   │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  📦 SUB-PACKAGES:                                    │
+│     • java.util.concurrent.atomic                    │
+│     • java.util.concurrent.locks                     │
+│                                                      │
+│  🗺️ COLLECTIONS (Concurrent):                        │
+│     • ConcurrentHashMap                              │
+│     • ConcurrentLinkedQueue                          │
+│     • ConcurrentLinkedDeque                          │
+│     • CopyOnWriteArrayList                           │
+│     • CopyOnWriteArraySet                            │
+│                                                      │
+│  🚦 BLOCKING QUEUES:                                 │
+│     • ArrayBlockingQueue                             │
+│     • LinkedBlockingQueue                            │
+│     • PriorityBlockingQueue                          │
+│     • SynchronousQueue                               │
+│     • DelayQueue                                     │
+│                                                      │
+│  ⚛️ ATOMIC CLASSES:                                  │
+│     • AtomicInteger, AtomicLong                      │
+│     • AtomicBoolean, AtomicReference                 │
+│     • AtomicIntegerArray, AtomicLongArray            │
+│     • LongAdder, DoubleAdder (Java 8+)              │
+│                                                      │
+│  🎯 EXECUTOR FRAMEWORK:                              │
+│     • ExecutorService, Executors                     │
+│     • ThreadPoolExecutor                             │
+│     • ScheduledExecutorService                       │
+│     • Future, Callable, CompletableFuture            │
+│                                                      │
+│  🔄 SYNCHRONIZERS:                                   │
+│     • CountDownLatch                                 │
+│     • CyclicBarrier                                  │
+│     • Semaphore                                      │
+│     • Phaser                                         │
+│     • Exchanger                                      │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "ConcurrentHashMap — MOST USED class     │
+│              in modern Java!                         │
+│                                                      │
+│              Production lo EVERY app uses it!        │
+│                                                      │
+│              Why so special?                         │
+│              ──────                                   │
+│              • Thread-safe                           │
+│              • FAST (lock-striping)                  │
+│              • No null keys/values                   │
+│              • Scalable                              │
+│              • Read MOSTLY lock-free!                │
+│                                                      │
+│              Idi MEMORIZE cheyyandi!"                │
+└──────────────────────────────────────────────────────┘
+
+│ ⭐ ConcurrentHashMap = NO null keys, NO null values  │
+│ ⭐ Different from HashMap (allows nulls)             │
+
+│ 💼 LESSON 7: For Spring Boot                         │
+│   • @Cacheable uses ConcurrentMap internally         │
+│   • Spring's TaskExecutor uses BlockingQueue        │
+│   • Micrometer uses Atomic for metrics               │
+
+*****
+──────────────────────────────────────────────────────┐
+│      WITH THREAD POOL                                │
+│                                                      │
+│   Pool: [T1] [T2] [T3] [T4] [T5]  (5 threads ready)  │
+│                                                      │
+│  Request 1 → T1 runs → T1 returns to pool           │
+│  Request 2 → T2 runs → T2 returns to pool           │
+│  Request 3 → T1 runs (reused!) → T1 back            │
+│  Request 4 → T3 runs → T3 back                      │
+│  ...                                                 │
+│                                                      │
+│  ✅ Only 5 threads ever exist                         │
+│  ✅ Reused for thousands of requests                  │
+│  ✅ Predictable resource usage                        │
+│  ✅ No OutOfMemoryError                               │
+│                                                      │
+│  ⚡ Production-ready!                                 │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│         EXECUTOR HIERARCHY                           │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  Executor (interface)                                │
+│    │                                                 │
+│    ▼                                                 │
+│  ExecutorService (interface) ⭐                      │
+│    │                                                 │
+│    ▼                                                 │
+│  AbstractExecutorService (class)                     │
+│    │                                                 │
+│    ├── ThreadPoolExecutor ⭐⭐ (most used!)          │
+│    │                                                 │
+│    └── ScheduledThreadPoolExecutor                   │
+│                                                      │
+│  Helper:                                             │
+│  Executors (factory class)                           │
+│    • newFixedThreadPool()                            │
+│    • newCachedThreadPool()                           │
+│    • newSingleThreadExecutor()                       │
+│    • newScheduledThreadPool()                        │
+│    • newWorkStealingPool()                           │
+└──────────────────────────────────────────────────────┘
+
+public interface ExecutorService extends Executor {
+    void execute(Runnable command);          // Fire & forget
+    
+    Future<?> submit(Runnable task);         // Get Future
+    <T> Future<T> submit(Callable<T> task);  // Get result
+    
+    void shutdown();                          // Graceful shutdown
+    List<Runnable> shutdownNow();             // Force shutdown
+    boolean isShutdown();
+    boolean isTerminated();
+    boolean awaitTermination(long timeout, TimeUnit unit);
+    
+    <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks);
+    <T> T invokeAny(Collection<? extends Callable<T>> tasks);
+}
+ExecutorService executor = Executors.newFixedThreadPool(3);
+
+┌─ 💎 USE FIXED FOR ───────────────────────────────────┐
+│                                                       │
+│ ✅ Predictable workload                              │
+│ ✅ Bounded resource usage                            │
+│ ✅ CPU-bound tasks                                   │
+│ ✅ Production servers                                │
+│ ✅ When you know optimal thread count                │
+│                                                       │
+│ Common: 2 × CPU cores for CPU-bound                  │
+│         100s for I/O-bound                           │
+└──────────────────────────────────────────────────────┘
+
+┌─ 💎 USE CACHED FOR ──────────────────────────────────┐
+│                                                       │
+│ ✅ Short-lived tasks                                 │
+│ ✅ Bursty workload                                   │
+│ ✅ Many quick async tasks                            │
+│                                                       │
+│ ❌ Long-running tasks                                │
+│ ❌ Unbounded request rate                            │
+│ ❌ Production without monitoring                     │
+└──────────────────────────────────────────────────────┘
+
+┌─ 💎 USE SINGLE FOR ──────────────────────────────────┐
+│                                                       │
+│ ✅ Sequential processing                             │
+│ ✅ Order matters                                     │
+│ ✅ Logging                                           │
+│ ✅ Single-writer pattern                             │
+│ ✅ Background tasks (one at a time)                  │
+│                                                       │
+│ ❌ Parallelism needed                                │
+│ ❌ Many tasks expected                               │
+└──────────────────────────────────────────────────────┘
+
+┌─ 💎 USE SCHEDULED FOR ───────────────────────────────┐
+│                                                       │
+│ ✅ Periodic tasks                                    │
+│ ✅ Delayed execution                                 │
+│ ✅ Heartbeats                                        │
+│ ✅ Cache refresh                                     │
+│ ✅ Cron-like jobs                                    │
+│                                                       │
+│ Better: Spring's @Scheduled annotation               │
+└──────────────────────────────────────────────────────┘
+
+│              Future:                                 │
+│              ──────                                   │
+│              Represents result of async computation │
+│              get() — wait and get result            │
+│              cancel() — cancel task                 │
+│              isDone() — check if complete           │
+
+
+Custom Pools!!
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "Executors factory methods are LIMITED!  │
+│                                                      │
+│              For PRODUCTION — make custom pool!      │
+│                                                      │
+│              ThreadPoolExecutor — full control!      │
+│                                                      │
+│              7 parameters!                           │
+│              All configurable!"                      │
+└──────────────────────────────────────────────────────┘
+
+ThreadPoolExecutor(
+    int corePoolSize,                    // Always-alive threads
+    int maximumPoolSize,                 // Max threads possible
+    long keepAliveTime,                  // Idle thread timeout
+    TimeUnit unit,                       // Time unit
+    BlockingQueue<Runnable> workQueue,   // Task queue
+    ThreadFactory threadFactory,         // Thread creator
+    RejectedExecutionHandler handler     // What if rejected?
+)
+
+
+┌──────────────────────────────────────────────────────┐
+│     THREAD POOL EXECUTOR FLOW                        │
+│                                                      │
+│   New task submitted                                 │
+│        │                                             │
+│        ▼                                             │
+│   Active threads < corePoolSize?                     │
+│        │                                             │
+│        ├── YES → Create new thread, run task         │
+│        │                                             │
+│        └── NO ── Queue available?                    │
+│                  │                                   │
+│                  ├── YES → Add to queue              │
+│                  │                                   │
+│                  └── NO ── Active < maxPoolSize?     │
+│                            │                         │
+│                            ├── YES → Create thread   │
+│                            │                         │
+│                            └── NO → REJECT! 🚨       │
+│                                                      │
+│   Idle threads (above core):                         │
+│   Killed after keepAliveTime                         │
+└──────────────────────────────────────────────────────┘
+
+ThreadPoolExecutor executor = new ThreadPoolExecutor(
+   10, // corePoolSize
+   50, // maximumPoolSize
+   60L, // keepAliveTime
+   TimeUnit.SECONDS, // time unit for keepAliveTime
+   new ArrayBlockingQueue<>(500), // work queue
+   new ThreadPoolExecutor.CallerRunsPolicy() // rejection handler
+);
+
+┌─ 💎 SPRING BOOT WAY ─────────────────────────────────┐
+│                                                       │
+│ ✅ ThreadPoolTaskExecutor (Spring's wrapper)         │
+│ ✅ @EnableAsync to enable async                      │
+│ ✅ @Async with executor name                         │
+│ ✅ Returns CompletableFuture                         │
+│ ✅ Automatic lifecycle management                    │
+│ ✅ Integration with Spring metrics                   │
+│                                                       │
+│ This is EVERY Spring Boot app's pattern!             │
+└──────────────────────────────────────────────────────┘
+
+
+collections start:
+
+┌──────────────────────────────────────────────────────┐
+│      COLLECTIONS FRAMEWORK COMPONENTS                │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  📋 INTERFACES (the contracts):                      │
+│     • Collection                                     │
+│     • List, Set, Queue                               │
+│     • Map                                            │
+│     • Iterator, ListIterator                         │
+│                                                      │
+│  🏗️ IMPLEMENTATION CLASSES:                          │
+│     • ArrayList, LinkedList, Vector                  │
+│     • HashSet, LinkedHashSet, TreeSet                │
+│     • PriorityQueue, ArrayDeque                      │
+│     • HashMap, LinkedHashMap, TreeMap, Hashtable     │
+│                                                      │
+│  ⚙️ ALGORITHMS (utility methods):                    │
+│     • Collections.sort()                             │
+│     • Collections.binarySearch()                     │
+│     • Collections.reverse()                          │
+│     • Collections.shuffle()                          │
+│     • etc.                                           │
+│                                                      │
+│  🔧 HELPER CLASSES:                                  │
+│     • Collections (utility class)                    │
+│     • Arrays (utility class)                         │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│       CORE INTERFACES                                │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  1. Collection (root)                                │
+│     "Group of individual objects"                    │
+│                                                      │
+│  2. List                                             │
+│     • Ordered (insertion order)                      │
+│     • Allows DUPLICATES                              │
+│     • Index-based access                             │
+│     Examples: ArrayList, LinkedList                  │
+│                                                      │
+│  3. Set                                              │
+│     • NO duplicates                                  │
+│     • Unordered (mostly)                             │
+│     Examples: HashSet, TreeSet                       │
+│                                                      │
+│  4. Queue                                            │
+│     • FIFO mostly                                    │
+│     • For waiting/processing                         │
+│     Examples: PriorityQueue, ArrayDeque              │
+│                                                      │
+│  5. Map (separate hierarchy)                         │
+│     • Key-Value pairs                                │
+│     • Keys UNIQUE                                    │
+│     • Values can duplicate                           │
+│     Examples: HashMap, TreeMap                       │
+└──────────────────────────────────────────────────────┘
+// All collections support these methods!
+
+public interface Collection<E> {
+    // Basic operations
+    boolean add(E e);              // Add element
+    boolean remove(Object o);      // Remove element
+    boolean contains(Object o);    // Check if present
+    int size();                    // Get size
+    boolean isEmpty();             // Check empty
+    void clear();                  // Remove all
+    
+    // Bulk operations
+    boolean addAll(Collection c);
+    boolean removeAll(Collection c);
+    boolean retainAll(Collection c);
+    boolean containsAll(Collection c);
+    
+    // Iteration
+    Iterator<E> iterator();
+    
+    // Array conversion
+    Object[] toArray();
+    <T> T[] toArray(T[] a);
+    
+    // Java 8+
+    default Stream<E> stream();
+    default Stream<E> parallelStream();
+    default boolean removeIf(Predicate<? super E> filter);
+}
+│ 💼 LESSON 3: Choose right collection                 │
+│   • Random access? → ArrayList                       │
+│   • Frequent insert/remove? → LinkedList             │
+│   • Unique elements? → HashSet                       │
+│   • Sorted? → TreeSet/TreeMap                        │
+│   • Key-value? → HashMap                             │
+│                                                       │
+│ 💼 LESSON 4: Initial capacity matters                │
+│   new ArrayList<>(1000)  // If you know size         │
+│   Avoids resize overhead                             │
+│                                                       │
+│ 💼 LESSON 5: Use immutable when possible             │
+│   List.of("a", "b", "c")  // Java 9+                 │
+│   Collections.unmodifiableList(list)                 │
+│   Thread-safe + clear intent                         │
+
+│ 💼 LESSON 7: Stream API for processing               │
+│   list.stream()                                      │
+│       .filter(...)                                   │
+│       .map(...)                                      │
+│       .collect(Collectors.toList());                 │
+
+┌─ 🔥 COLLECTIONS IN PRODUCTION (2024-2026) ───────────┐
+│                                                       │
+│ 📈 EVERYWHERE!                                       │
+│   • Every Java app uses collections                  │
+│   • Spring Boot extensively                          │
+│   • Database results → List/Map                      │
+│   • REST APIs → JSON arrays/objects                  │
+│   • Caching → Map                                    │
+│                                                       │
+│ 🏢 TYPICAL USAGE:                                    │
+│   • ArrayList — most used List                       │
+│   • HashMap — most used Map                          │
+│   • HashSet — for unique items                       │
+│   • LinkedList — rarely (use ArrayDeque instead)     │
+│                                                       │
+│ 🆕 MODERN ALTERNATIVES:                              │
+│   • Concurrent collections (Java 5+)                 │
+│   • Immutable collections (Java 9+)                  │
+│   • Streams API (Java 8+)                            │
+│                                                       │
+│ 🎯 INTERVIEW IMPORTANCE:                             │
+│   100% of Java interviews ask collections!           │
+│   • Hierarchy diagram                                │
+│   • Differences (ArrayList vs LinkedList, etc.)      │
+│   • HashMap internal working                         │
+│   • Time complexity                                  │
+│   • Use cases                                        │
+└──────────────────────────────────────────────────────┘
+
+ArrayList:
+┌──────────────────────────────────────────────────────┐
+│      CAPACITY GROWTH                                 │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│   Initial:     0  (lazy)                             │
+│   First add:   10 (DEFAULT_CAPACITY)                 │
+│   Full at 10:  15 (10 * 1.5)                         │
+│   Full at 15:  22 (15 * 1.5 = 22.5 → 22)             │
+│   Full at 22:  33                                    │
+│   Full at 33:  49                                    │
+│   Full at 49:  73                                    │
+│   ...                                                │
+│                                                      │
+│   Pattern: newCapacity = oldCapacity * 1.5           │
+│                                                      │
+│   ⚠️ Each resize:                                    │
+│   • Allocate new array                               │
+│   • Copy ALL elements                                │
+│   • Discard old                                      │
+│   = EXPENSIVE!                                       │
+│                                                      │
+│   💡 Solution: Initial capacity if known size!       │
+│   new ArrayList<>(1000)                              │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "ArrayList iterator FAIL-FAST!           │
+│                                                      │
+│              Ante:                                   │
+│              ──────                                   │
+│              Iteration cheste —                      │
+│              Concurrent modification detect avtundi! │
+│              Exception throw chestadi!               │
+│                                                      │
+│              Why? Bug detection!                     │
+│              Better to fail loud than silent bugs!   │
+│                                                      │
+│              How?                                    │
+│              ──────                                   │
+│              modCount variable maintain chestadi!    │
+│              Iterator created → expectedModCount     │
+│              save chestadi.                          │
+│                                                      │
+│              Each next() call:                       │
+│              if (modCount != expectedModCount)       │
+│                  throw ConcurrentModificationException│
+└──────────────────────────────────────────────────────┘
+
+┌─ ❌ MYTH vs ✅ REALITY ──────────────────────────────┐
+│                                                       │
+│ ❌ MYTH 1: "ArrayList grows by 2x"                   │
+│ ✅ TRUTH:  Grows by 1.5x! (1.5x = oldCap + oldCap/2) │
+│           Vector grows by 2x                          │
+│                                                       │
+│ ❌ MYTH 2: "ArrayList is thread-safe"                │
+│ ✅ TRUTH:  NOT thread-safe!                          │
+│           Use CopyOnWriteArrayList for thread-safe   │
+│                                                       │
+│ ❌ MYTH 3: "ArrayList only stores Objects"           │
+│ ✅ TRUTH:  Auto-boxing makes primitives work         │
+│           list.add(5) → autoboxes list.add(Integer.valueOf(5))         │
+│                                                       │
+│ ❌ MYTH 4: "Initial size 10 always allocated"        │
+│ ✅ TRUTH:  LAZY init (Java 8+)                       │
+│           Empty until first add!                     │
+│                                                       │
+│ ❌ MYTH 5: "size() == capacity"                      │
+│ ✅ TRUTH:  size <= capacity                          │
+│           Capacity is internal array length          │
+│                                                       │
+│ ❌ MYTH 6: "ArrayList faster than array"             │
+│ ✅ TRUTH:  Slightly slower                           │
+│           Dynamic features have overhead             │
+│           But practically comparable                 │
+│                                                       │
+│ ❌ MYTH 7: "Fail-fast is thread-safe"                │
+│ ✅ TRUTH:  Best-effort detection!                    │
+│           NOT guaranteed                             │
+│           Could miss in some cases                   │
+│                                                       │
+│ ❌ MYTH 8: "remove(5) removes value 5"               │
+│ ✅ TRUTH:  Removes INDEX 5!                          │
+│           remove(Integer.valueOf(5)) for value       │
+│                                                       │
+│ ❌ MYTH 9: "subList returns new list"                │
+│ ✅ TRUTH:  Returns VIEW!                             │
+│           Modifies affect original                   │
+└──────────────────────────────────────────────────────┘
+
+│ 💼 LESSON 4: Don't return null                       │
+│   return Collections.emptyList();                    │
+│   OR                                                 │
+│   return new ArrayList<>();                          │
+│                                                       │
+│ 💼 LESSON 5: Use Java 9+ factory methods             │
+│   List.of("a", "b", "c");  // Immutable!             │
+│   Cleaner than Arrays.asList                         │
+│                                                       │
+│ 💼 LESSON 6: Stream API for processing               │
+│   list.stream()                                      │
+│       .filter(...)                                   │
+│       .map(...)                                      │
+│       .collect(Collectors.toList());                 │
+│                                                       │
+│ 💼 LESSON 7: removeIf() for conditional removal      │
+│   list.removeIf(item -> item.isExpired());           │
+│   No iterator headaches!                             │
+│                                                       │
+│ 💼 LESSON 8: Use Collections.unmodifiableList        │
+│   For defensive programming                          │
+│   Returns immutable view                             │
+
+
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "LinkedList LOPALI ELA work?             │
+│                                                      │
+│              Each element wrapped in NODE!           │
+│                                                      │
+│              private static class Node<E> {          │
+│                  E item;          ← data             │
+│                  Node<E> next;    ← next pointer     │
+│                  Node<E> prev;    ← prev pointer     │
+│              }                                       │
+│                                                      │
+│              LinkedList class:                       │
+│              Node<E> first;       ← head            │
+│              Node<E> last;        ← tail            │
+│              int size;                               │
+│                                                      │
+│              IDI structure!"                         │
+└──────────────────────────────────────────────────────┘
+  ┌────┐    ┌────┐    ┌────┐    ┌────┐
+  │ 10 │ ⇄  │ 20 │ ⇄  │ 30 │ ⇄  │ 40 │
+  └────┘    └────┘    └────┘    └────┘
+   ↑                                ↑
+  first                           last
+
+size = 4
+
+┌──────────────────────────────────────────────────────────────┐
+│       ARRAYLIST vs LINKEDLIST                                │
+├──────────────────────────┬───────────────────────────────────┤
+│   ARRAYLIST              │   LINKEDLIST                      │
+├──────────────────────────┼───────────────────────────────────┤
+│                          │                                   │
+│ Internal: Object[]       │ Internal: Doubly-linked nodes     │
+│                          │                                   │
+│ Random access: O(1) ⚡   │ Random access: O(n) 🐌            │
+│                          │                                   │
+│ Add at end: O(1)*        │ Add at end: O(1)                  │
+│ Add at start: O(n)       │ Add at start: O(1) ⚡             │
+│ Insert middle: O(n)      │ Insert middle: O(n) (find)        │
+│                          │                                   │
+│ Memory: Less ⚡          │ Memory: More 📦                   │
+│ (just elements)          │ (next + prev + element)           │
+│                          │                                   │
+│ Cache: Friendly ⚡       │ Cache: UNfriendly 🐌              │
+│ (sequential)             │ (scattered)                       │
+│                          │                                   │
+│ Implements:              │ Implements:                       │
+│ • List                   │ • List                            │
+│ • RandomAccess           │ • Deque ⭐                        │
+│                          │ • Queue                           │
+│                          │                                   │
+│ Initial capacity         │ NO initial capacity               │
+│                          │                                   │
+│ Growth: 1.5x             │ Grows one node at a time          │
+│                          │                                   │
+│ Iterator: faster         │ Iterator: comparable              │
+│                          │                                   │
+│ Use case:                │ Use case:                         │
+│ • 90% of cases ⭐         │ • Frequent end ops                │
+│ • Random access          │ • Queue/Deque/Stack               │
+│ • Read-heavy             │ • RARE in modern code!            │
+└──────────────────────────┴───────────────────────────────────┘
+│ 🏆 USE ARRAYLIST 90% of the time!                    │
+
+HashMap:
+┌──────────────────────────────────────────────────────┐
+│       HASHMAP INTERNAL STRUCTURE                     │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  HashMap has:                                        │
+│  ──────                                               │
+│  Node<K,V>[] table;   ← ARRAY of Nodes (buckets!)    │
+│  int size;            ← number of entries            │
+│  int threshold;       ← when to resize               │
+│  float loadFactor;    ← default 0.75                 │
+│                                                      │
+│  Each Node:                                          │
+│  ──────                                               │
+│  static class Node<K,V> {                            │
+│      int hash;        ← hash value                   │
+│      K key;                                          │
+│      V value;                                        │
+│      Node<K,V> next;  ← linked list pointer!         │
+│  }                                                   │
+│                                                      │
+│  Default capacity: 16                                │
+│  Default load factor: 0.75                           │
+│  Threshold: 16 * 0.75 = 12                           │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│      TREEIFICATION CONSTANTS                         │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  TREEIFY_THRESHOLD = 8                               │
+│  → Bucket > 8 nodes → convert to tree                │
+│                                                      │
+│  UNTREEIFY_THRESHOLD = 6                             │
+│  → Tree < 6 nodes → convert back to list             │
+│                                                      │
+│  MIN_TREEIFY_CAPACITY = 64                           │
+│  → Map capacity must be ≥ 64 for treeify             │
+│  → Else just resize the map                          │
+└──────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "HashMap ELA grow avtundi?               │
+│                                                      │
+│              CONDITION:                              │
+│              size > capacity * loadFactor            │
+│                                                      │
+│              Default:                                │
+│              16 * 0.75 = 12                          │
+│                                                      │
+│              13th entry add ainappudu →              │
+│              RESIZE!                                 │
+│                                                      │
+│              How?                                    │
+│              ──────                                   │
+│              1. Double capacity (16 → 32)            │
+│              2. Create NEW array                     │
+│              3. REHASH all entries to new buckets    │
+│              4. Old array discarded                  │
+│                                                      │
+│              ⚠️ EXPENSIVE operation!                  │
+│              ⚠️ All entries rehashed!                 │
+│                                                      │
+│              Why double?                             │
+│              ──────                                   │
+│              • Power of 2 for efficient bit ops      │
+│              • Index = hash & (n-1) works            │
+│              • Even distribution                     │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "Children, custom class HashMap key      │
+│              vadtam ante —                           │
+│                                                      │
+│              hashCode() and equals() OVERRIDE        │
+│              CHEYYALI!                               │
+│                                                      │
+│              IDI MOST IMPORTANT rule!                │
+│                                                      │
+│              CONTRACT:                               │
+│              ──────                                   │
+│              1. If a.equals(b) is TRUE:              │
+│                 → a.hashCode() == b.hashCode() MUST! │
+│                                                      │
+│              2. If a.hashCode() == b.hashCode():     │
+│                 → a.equals(b) NOT necessarily true   │
+│                 (collisions allowed)                 │
+│                                                      │
+│              3. hashCode() consistent:               │
+│                 → Same object → same hash always     │
+│                                                      │
+│              IDI BREAK aithe BUG!"                   │
+└──────────────────────────────────────────────────────┘
+
+│ Q13: "What is hashCode and equals contract?"         │
+│ A:  • equal objects MUST have same hashCode          │
+│     • Same hashCode doesn't mean equal               │
+│     • hashCode consistent during object lifetime     │
+│     • Override BOTH together!                        │
+│ 🏢 95% interviews ⭐⭐⭐                              │
+│                                                       │
+│ Q14: "What if I don't override hashCode?"            │
+│ A:  Default uses object reference (memory address)   │
+│     Different objects → different hashes             │
+│     Same data won't match!                           │
+│     map.get(equivalentKey) returns null!             │
+
+
+
+
+│              KAANI — Custom objects?                 │
+│              ──────                                   │
+│              List<Pilot> pilots = ...                │
+│              Collections.sort(pilots);               │
+│              🚨 ClassCastException!                   │
+│                                                      │
+│              Java doesn't know HOW to compare!       │
+│                                                      │
+│              Solution:                               │
+│              ──────                                   │
+│              1. COMPARABLE — natural ordering        │
+│                 (modify the class)                   │
+│                                                      │
+│              2. COMPARATOR — custom ordering         │
+│                 (separate strategy)                  │
+
+┌─ 💎 ANALOGY ─────────────────────────────────────────┐
+│                                                       │
+│ Comparable = "I know how to compare myself!"         │
+│   Class itself defines ordering                      │
+│   ONE natural way                                    │
+│                                                       │
+│ Comparator = "I know how to compare YOU!"            │
+│   External class defines ordering                    │
+│   MULTIPLE ways possible                             │
+│                                                       │
+│ Real life:                                           │
+│ • Comparable: People know their birthdays (natural)  │
+│ • Comparator: HR sorts by salary, age, name (custom) │
+└──────────────────────────────────────────────────────┘
+@Override
+public int compareTo(Pilot other) {
+    return Integer.compare(this.experience, other.experience);
+}
+
+return pilots.stream()
+            .sorted(Comparator
+                .comparing(Pilot::getRating).reversed()
+
+┌──────────────────────────────────────────────────────┐
+│   WHEN TO USE WHICH?                                 │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  USE COMPARABLE WHEN:                                │
+│  ──────                                               │
+│  ✅ ONE natural ordering exists                      │
+│  ✅ You own the class (can modify)                   │
+│  ✅ Ordering is intrinsic to object                  │
+│                                                      │
+│  Examples:                                           │
+│  • Integer (natural number order)                    │
+│  • String (alphabetical)                             │
+│  • Date (chronological)                              │
+│  • BigDecimal (numerical)                            │
+│                                                      │
+│  ──────────────────────────────                      │
+│                                                      │
+│  USE COMPARATOR WHEN:                                │
+│  ──────                                               │
+│  ✅ Multiple ordering needed                         │
+│  ✅ Cannot modify class (3rd party)                  │
+│  ✅ Different sorts in different contexts            │
+│  ✅ Complex sort logic                               │
+│                                                      │
+│  Examples:                                           │
+│  • Pilot by name OR by experience                    │
+│  • Sort employees by department, then salary         │
+│  • Custom string sorting (case-insensitive)          │
+│                                                      │
+│  RULE OF THUMB:                                      │
+│  ──────                                               │
+│  • If only one obvious sort → Comparable             │
+│  • Otherwise → Comparator (more flexible!)           │
+└──────────────────────────────────────────────────────┘
+┌─ ❌ MYTH vs ✅ REALITY ──────────────────────────────┐
+│                                                       │
+│ ❌ MYTH 1: "compareTo returns -1, 0, +1"             │
+│ ✅ TRUTH:  Returns NEGATIVE, ZERO, or POSITIVE       │
+│           Could be -100, 0, +50, etc.                │
+│           Sign matters, not magnitude                │
+│                                                       │
+│ ❌ MYTH 2: "Use this.x - other.x for compareTo"      │
+│ ✅ TRUTH:  Use Integer.compare() for safety          │
+│           Avoids overflow                            │
+│                                                       │
+│ ❌ MYTH 3: "Comparable required for sorting"         │
+│ ✅ TRUTH:  Just need Comparator OR Comparable        │
+│           Comparator can always be used              │
+│                                                       │
+│ ❌ MYTH 4: "Lambda comparators are slow"             │
+│ ✅ TRUTH:  Same performance as anonymous class       │
+│           JIT optimizes well                         │
+│                                                       │
+│ ❌ MYTH 5: "Comparable in java.util"                 │
+│ ✅ TRUTH:  Comparable in java.lang                   │
+│           Comparator in java.util                    │
+│                                                       │
+│ ❌ MYTH 6: "compareTo should be consistent w/ equals"│
+│ ✅ TRUTH:  RECOMMENDED but not required              │
+│           If inconsistent, document carefully        │
+│           BigDecimal famous example of inconsistency │
+│                                                       │
+│ ❌ MYTH 7: "Comparator only works on List"           │
+│ ✅ TRUTH:  Works on:                                 │
+│           List.sort(), Streams, TreeSet, TreeMap,    │
+│           PriorityQueue, Arrays.sort()               │
+│                                                       │
+│ ❌ MYTH 8: "thenComparing only for two fields"       │
+│ ✅ TRUTH:  Chain as many as needed!                  │
+│           a.thenComparing(b).thenComparing(c)...     │
+└──────────────────────────────────────────────────────┘
+
+┌─ 👨‍💼 PRODUCTION INSIGHTS ────────────────────────────┐
+│                                                       │
+│ 💼 LESSON 1: Use Comparator.comparing() over lambda  │
+│   ✅ Comparator.comparing(Pilot::getName)            │
+│   Better readability than lambda                     │
+│                                                       │
+│ 💼 LESSON 2: Use comparingInt/Long/Double            │
+│   For primitives — avoids boxing!                    │
+│   Better performance                                 │
+│                                                       │
+│ 💼 LESSON 3: Define common comparators as constants  │
+│   public static final Comparator<Pilot>              │
+│       BY_NAME = Comparator.comparing(Pilot::getName);│
+│   Reusable, readable                                 │
+│                                                       │
+│ 💼 LESSON 4: Use Integer.compare() NOT subtraction   │
+│   Avoid overflow bugs                                │
+│                                                       │
+│ 💼 LESSON 5: Make compareTo consistent with equals   │
+│   Else TreeSet/TreeMap behave unexpectedly           │
+│                                                       │
+│ 💼 LESSON 6: Handle nulls explicitly                 │
+│   Comparator.nullsFirst() / nullsLast()              │
+│   Don't crash on null fields                         │
+│                                                       │
+│ 💼 LESSON 7: Chain for complex sorting               │
+│   .thenComparing() is cleaner than nested if-else    │
+│                                                       │
+│ 💼 LESSON 8: Use streams for sorted views            │
+│   list.stream().sorted(comp).collect(toList())       │
+│   Doesn't modify original                            │
+│                                                       │
+│ 💼 LESSON 9: For Spring Boot                         │
+│   • Sort REST results before return                  │
+│   • TreeMap for sorted config                        │
+│   • PriorityQueue for tasks                          │
+│                                                       │
+│ 💼 LESSON 10: Records auto-implement Comparable?     │
+│   NO — must explicitly implement                     │
+│   But equals/hashCode auto-generated                 │
+└──────────────────────────────────────────────────────┘
+
+│ Q8: "How to sort by multiple fields?"                │
+│ A:  Comparator                                       │
+│       .comparing(Pilot::getExperience)               │
+│       .thenComparing(Pilot::getName)                 │
+│ 🏢 90% interviews ⭐⭐                                │
+
+┌─ 🎤 TOP INTERVIEW Q&A ───────────────────────────────┐
+│                                                       │
+│ Q1: "Comparable vs Comparator?"                      │
+│ A:  Comparable:                                      │
+│     • java.lang package                              │
+│     • compareTo(other) method                        │
+│     • Single natural ordering                        │
+│     • Inside the class                               │
+│                                                       │
+│     Comparator:                                      │
+│     • java.util package                              │
+│     • compare(o1, o2) method                         │
+│     • Multiple custom orderings                      │
+│     • External class                                 │
+│ 🏢 100% interviews ⭐⭐⭐                             │
+│                                                       │
+│ Q2: "When to use which?"                             │
+│ A:  Comparable: ONE natural order, modify class      │
+│     Comparator: MULTIPLE orders, can't modify class  │
+│     Often use BOTH!                                  │
+│ 🏢 95% interviews                                    │
+│                                                       │
+│ Q3: "What does compareTo return?"                    │
+│ A:  • Negative: this < other                         │
+│     • Zero: equal                                    │
+│     • Positive: this > other                         │
+│     Magnitude doesn't matter, only sign              │
+│ 🏢 90% interviews ⭐⭐                                │
+│                                                       │
+│ Q4: "Why not use a-b for compareTo?"                 │
+│ A:  Integer overflow!                                │
+│     Use Integer.compare(a, b) instead                │
+│ 🏢 75% interviews                                    │
+│                                                       │
+│ Q5: "Comparator.comparing() use?"                    │
+│ A:  Static factory method (Java 8+)                  │
+│     Takes key extractor function                     │
+│     Returns Comparator                               │
+│     Comparator.comparing(Pilot::getName)             │
+│ 🏢 85% interviews ⭐⭐                                │
+│                                                       │
+│ Q6: "thenComparing usage?"                           │
+│ A:  Chain comparators for multi-level sort           │
+│     comparing(A).thenComparing(B).thenComparing(C)   │
+│     Sort by A, ties broken by B, then by C           │
+│ 🏢 80% interviews ⭐                                  │
+│                                                       │
+│ Q7: "Comparator.reverseOrder() vs reversed()?"       │
+│ A:  reverseOrder(): static, natural reverse          │
+│     reversed(): instance method, reverses any comp   │
+│ 🏢 70% interviews                                    │
+│                                                       │
+│ Q8: "How to sort by multiple fields?"                │
+│ A:  Comparator                                       │
+│       .comparing(Pilot::getExperience)               │
+│       .thenComparing(Pilot::getName)                 │
+│ 🏢 90% interviews ⭐⭐                                │
+│                                                       │
+│ Q9: "compareTo consistent with equals?"              │
+│ A:  Recommended:                                     │
+│     a.compareTo(b) == 0 should imply a.equals(b)     │
+│     Otherwise TreeSet/TreeMap may behave oddly       │
+│ 🏢 75% interviews                                    │
+│                                                       │
+│ Q10: "Comparator is functional interface?"           │
+│ A:  YES! @FunctionalInterface                        │
+│     Single abstract method: compare(o1, o2)          │
+│     Can be used with lambda                          │
+│ 🏢 80% interviews                                    │
+│                                                       │
+│ Q11: "Where is Comparator used?"                     │
+│ A:  • List.sort()                                    │
+│     • Collections.sort()                             │
+│     • Stream.sorted()                                │
+│     • TreeSet, TreeMap                               │
+│     • PriorityQueue                                  │
+│     • Stream.max/min                                 │
+│ 🏢 75% interviews                                    │
+│                                                       │
+│ Q12: "Handle nulls in Comparator?"                   │
+│ A:  Comparator.nullsFirst(...) — nulls at start      │
+│     Comparator.nullsLast(...) — nulls at end         │
+│ 🏢 70% interviews                                    │
+│                                                       │
+│ Q13: "comparingInt vs comparing?"                    │
+│ A:  comparingInt: returns int (no boxing!)           │
+│     comparing: generic, uses object                  │
+│     Use comparingInt for int fields (faster)         │
+│ 🏢 65% interviews                                    │
+│                                                       │
+│ Q14: "Sort in reverse with Comparable?"              │
+│ A:  Collections.reverseOrder()                       │
+│     Or Comparator.reverseOrder()                     │
+│     Or .reversed() on existing comparator            │
+│ 🏢 65% interviews                                    │
+│                                                       │
+│ Q15: "Stable sort in Java?"                          │
+│ A:  Yes! Collections.sort() is STABLE                │
+│     Equal elements maintain relative order           │
+│     Important for multi-level sorts                  │
+│ 🏢 60% interviews                                    │
+└──────────────────────────────────────────────────────┘
+
+Lambda + FI:
+┌──────────────────────────────────────────────────────┐
+│       LAMBDA STRUCTURE                               │
+│                                                      │
+│      (x, y)        ->        x + y                   │
+│       │             │          │                     │
+│       │             │          └─ BODY               │
+│       │             │             (expression or {}) │
+│       │             │                                │
+│       │             └─ ARROW (separator)             │
+│       │                                              │
+│       └─ PARAMETERS (optional types)                 │
+│                                                      │
+│   Read as: "Given x and y, return x + y"             │
+└──────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────┐
+│      BEFORE LAMBDA (Pre-Java 8)                      │
+│                                                      │
+│  Comparator<String> c = new Comparator<String>() {   │
+│      @Override                                       │
+│      public int compare(String a, String b) {        │
+│          return a.length() - b.length();             │
+│      }                                               │
+│  };                                                  │
+│                                                      │
+│  6 lines, 90% boilerplate                            │
+│                                                      │
+│  ──────────────────────────────                      │
+│                                                      │
+│      WITH LAMBDA (Java 8+)                           │
+│                                                      │
+│  Comparator<String> c =                              │
+│      (a, b) -> a.length() - b.length();              │
+│                                                      │
+│  1 line, all logic!                                  │
+│                                                      │
+│  ⚡ 6x less code!                                    │
+│  ⚡ More readable!                                    │
+└──────────────────────────────────────────────────────┘
+│              When lambda just calls a method —       │
+│              Use method reference!                   │
+┌──────────────────────────────────────────────────────────────┐
+│       LAMBDA → METHOD REFERENCE                              │
+├─────────────────────────────────┬────────────────────────────┤
+│   LAMBDA                        │   METHOD REFERENCE         │
+├─────────────────────────────────┼────────────────────────────┤
+│                                 │                            │
+│ s -> Integer.parseInt(s)        │ Integer::parseInt          │
+│ s -> System.out.println(s)      │ System.out::println        │
+│ s -> s.length()                 │ String::length             │
+│ (a, b) -> a.compareTo(b)        │ String::compareTo          │
+│ () -> new ArrayList<>()         │ ArrayList::new             │
+│ name -> new Pilot(name)         │ Pilot::new                 │
+└─────────────────────────────────┴────────────────────────────┘
+
+StreamAPI:
+Replace 80% of for-loops!
+
+│              'A SEQUENCE of elements supporting      │
+│               functional-style operations!'          │
+│                                                      │
+│              IMPORTANT — Stream NOT a data structure!│
+│              ──────                                   │
+│              • Doesn't store elements                │
+│              • Doesn't modify source                 │
+│              • Lazy evaluation                       │
+│              • One-time use!                         │
+
+┌──────────────────────────────────────────────────────┐
+│      THREE TYPES OF OPERATIONS                       │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  1. CREATION (sources):                              │
+│     stream(), of(), generate(), iterate()            │
+│                                                      │
+│  2. INTERMEDIATE (return Stream):                    │
+│     filter, map, sorted, distinct, limit, skip       │
+│     ⭐ LAZY — don't execute until terminal!          │
+│                                                      │
+│  3. TERMINAL (return result):                        │
+│     collect, count, forEach, reduce, max, min        │
+│     ⭐ Triggers actual processing!                    │
+└──────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────┐
+│       STREAM API — CHEAT SHEET                       │
+└──────────────────────────────────────────────────────┘
+
+🌊 STREAM:
+   Sequence of elements
+   Functional operations
+   Lazy evaluation
+   One-time use
+   NOT a data structure
+
+🎯 OPERATIONS:
+   Source → Intermediate → Terminal
+
+🌱 CREATION:
+   collection.stream()
+   Stream.of(elements)
+   Arrays.stream(arr)
+   IntStream.range(start, end)
+   Stream.iterate/generate
+
+🔧 INTERMEDIATE (lazy, return Stream):
+   filter(Predicate)
+   map(Function)
+   flatMap(Function)
+   sorted(), sorted(Comparator)
+   distinct()
+   limit(n), skip(n)
+   peek(Consumer)
+   takeWhile, dropWhile (Java 9+)
+
+🏁 TERMINAL (return result):
+   collect(Collector)
+   count()
+   forEach(Consumer)
+   reduce(...)
+   findFirst, findAny
+   anyMatch, allMatch, noneMatch
+   max, min
+   toArray()
+
+📦 COLLECTORS:
+   toList(), toSet(), toMap()
+   joining(", ")
+   counting()
+   groupingBy(...)
+   partitioningBy(...)
+   summarizingDouble(...)
+   averagingDouble(...)
+   summingInt(...)
+   mapping(...)
+
+⚡ PARALLEL:
+   parallelStream() or .parallel()
+   ForkJoinPool internally
+   Use for large data, CPU-intensive
+   Avoid for small data, I/O, side effects
+
+🚨 PITFALLS:
+   1. Stream reuse → IllegalStateException
+   2. Side effects → unpredictable
+   3. Forgetting terminal op → no execution
+   4. toMap with duplicate keys
+   5. Null handling
+
+💎 BEST PRACTICES:
+   1. Use method references
+   2. Filter before map
+   3. Use primitive streams (IntStream)
+   4. Avoid side effects
+   5. Be careful with parallel
+   6. Filter early for performance
+   7. Use Collectors fully
+   8. Don't reuse streams
+
+🎤 INTERVIEW HOT POINTS:
+   • Stream vs Collection
+   • Intermediate vs Terminal
+   • map vs flatMap
+   • Lazy evaluation
+   • Common Collectors
+   • Parallel streams
+   • Reduce vs Collect
+   • Pitfalls
+   
+   
+Optional - Null safety done right
+┌──────────────────────────────────────────────────────┐
+│  Durga sir: "Children, NullPointerException!         │
+│                                                      │
+│              Tony Hoare quote:                       │
+│              'Inventing null reference was my        │
+│               billion-dollar mistake!'               │
+│                                                      │
+│              Old Java code:                          │
+│              ──────                                   │
+│              Pilot pilot = service.findById(id);     │
+│              String name = pilot.getName();          │
+│              // 🚨 NPE if pilot is null!             │
+│                                                      │
+│              Solution: NULL CHECKS everywhere!       │
+│              ──────                                   │
+│              if (pilot != null) {                    │
+│                  String name = pilot.getName();      │
+│                  if (name != null) {                 │
+│                      String upper = name.toUpper();  │
+│                      // Pyramid of doom!             │
+│                  }                                   │
+│              }                                       │
+│                                                      │
+│              UGLY! Verbose! Error-prone!             │
+│                                                      │
+│              Java 8 SOLUTION — OPTIONAL!             │
+│              ──────                                   │
+│              Optional<Pilot> pilot = ...;            │
+│              String name = pilot                     │
+│                  .map(Pilot::getName)                │
+│                  .map(String::toUpperCase)           │
+│                  .orElse("Unknown");                 │
+│                                                      │
+│              CLEAN! Functional! Safe!"               │
+└──────────────────────────────────────────────────────┘
+
+
+
+
+Arrays.sort(a[])
+Arrays.equal(a[],b[])
+s.toCharArray(a[])
+
+map:
+HashMap<Character, Integer> map1 = new HashMap<>();
+map.put(k,v)
+s.charAt()
+map.getOrDefault(t,0)
+map.equals(map2)
+map.containsKey()
+map.get(k)
+
+set:
+Set<Integer> seen = new HashSet<>();
+set.contains()
+set.add()
+
+
+research our repos
+
+tcs interview lo
+write code for kafka
+rest api
+how pass jwt token
+spring boot security
+optional
+
+my running notes
+
+coding:				
+strings midHA EKKUVA
+adigevi chinnave kaani avi aina cheppali
+map
+
+UI also
+
+project based more
+deadlock
+resiliency
+scenario based experience
+ci cd also
+
+project deep internals
+externals
+azure, docker, k8s etc
+
+hr questions
+
+stream, optional, lambda , last lo chudham
